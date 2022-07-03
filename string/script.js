@@ -3,7 +3,7 @@
 let x = 100;
 console.log(typeof String(100));
 
-//console.log(typeof 100.toString) ==. float point
+//console.log(typeof 100.toString) ==> float point
 console.log(typeof (100).toString());
 console.log(typeof 100..toString());
 
@@ -20,6 +20,13 @@ console.log(names[6]);
 console.log(names[5]);
 console.log(names.indexOf('7'));
 console.log(names.slice(0, 8));
+
+
+let sent = 'i love javaScript';
+console.log(sent.indexOf('a')); // how to search in the strings
+console.log(sent.lastIndexOf('a'));
+console.log(sent.includes('o')); // includes resulting with true / false
+console.log(sent.includes('h'));
 
 
 
