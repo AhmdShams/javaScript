@@ -20,7 +20,8 @@ console.log(cost > 12000 || size == 50);
 // && => and
 // || => or
 
-/* let num1 = 12;
+/*
+let num1 = 12;
 let num2 = 10;
 
 if(num1 > num2)
@@ -36,6 +37,8 @@ if(num4 > num3)
     crossOriginIsolated.log('hello');
 }
 */
+
+/*
 let role = prompt('what is your role!');
 if(role == 'admin')
 {
@@ -58,3 +61,12 @@ else if(result >= 80);
 {
     document.write('BBB');
 }
+*/
+
+let score = prompt('what is your score!')
+if(score >= 100);
+{
+    document.write('Hero');
+}
+
+
