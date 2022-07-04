@@ -7,7 +7,7 @@ hello('Ahmed');
 hello('Shams');
 
 
-function calcAge(age) //calculating age into days 
+function calcAge(age) // calculating age into days 
 {
     let result = age * 365;
     console.log(result);
@@ -29,3 +29,6 @@ function pro(price, taxes, ads)
 
 pro(500, 3, 20);
 pro(900, 1.5, 10);
+
+
+
