@@ -20,5 +20,41 @@ console.log(cost > 12000 || size == 50);
 // && => and
 // || => or
 
+/* let num1 = 12;
+let num2 = 10;
 
+if(num1 > num2)
+{
+    console.log('hello');
+}
 
+let num3 = prompt('num3');
+let num4 = prompt('num4');
+
+if(num4 > num3)
+{
+    crossOriginIsolated.log('hello');
+}
+*/
+let role = prompt('what is your role!');
+if(role == 'admin')
+{
+    document.write('update, create, delete');
+}
+else if(role == 'modirator')
+{
+    document.write('update, create');
+}
+else{
+    document.write('hi');
+}
+
+let result = prompt('what is your result!')
+if (result >= 90)
+{
+    document.write('AAA');
+}
+else if(result >= 80);
+{
+    document.write('BBB');
+}
