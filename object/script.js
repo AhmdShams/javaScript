@@ -38,3 +38,19 @@ let user = {
 }
 
 console.log(user)
+
+
+let player = {
+    player1: 'Adam',
+
+    getName: function() {
+        return player.player1
+        return this.player1
+    }
+}
+
+console.log(player.getName())
+
+
+let x = this;
+console.log(x); // here this using the global object 
