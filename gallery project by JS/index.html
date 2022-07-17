@@ -8,12 +8,17 @@
     <body>
         <div class="gallery">
             <div class="photos">
-                <img src="images/1.jpg" alt="..">
-                <img src="images/2.jpg" alt="..">
-                <img src="images/3.jpg" alt="..">
+                <img onclick="main.src = this.src" src="images/1.jpg" alt="..">
+                <img onclick="main.src = this.src" src="images/2.jpg" alt="..">
+                <img onclick="main.src = this.src" src="images/3.jpg" alt="..">
             </div>
             <div class="main">
-                <img src="images/1.jpg" alt="..">
+                <img src="images/1.jpg" name="main" alt="..">
+            </div>
+            <div class="photos">
+                <img onmouseenter="main.src = this.src" src="images/1.jpg" alt="..">
+                <img onmouseenter="main.src = this.src" src="images/2.jpg" alt="..">
+                <img onmouseenter="main.src = this.src" src="images/3.jpg" alt="..">
             </div>
         </div>
         <script src="script.js"></script>
