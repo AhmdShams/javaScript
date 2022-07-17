@@ -12,6 +12,8 @@ console.log(car.title);
 */
 
 
+
+// example
 let user = {
     firstName: 'Ahmed',
     lastName: 'Shams',
@@ -40,6 +42,8 @@ let user = {
 console.log(user)
 
 
+
+// another example
 let player = {
     player1: 'Adam',
 

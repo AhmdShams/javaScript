@@ -15,7 +15,7 @@ head.style.color = 'yellow'
 console.log(body)
 
 let img = document.getElementById('images');
-img.src = 'images/2.jpg'; // changing the to another image
+img.src = 'images/2.jpg'; // changing to another image
 
 console.log(img)
 
