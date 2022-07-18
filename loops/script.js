@@ -15,3 +15,6 @@ for(let i = 0; i < users.length; i++)
     }
     console.log(users[i])
 }
+
+
+// === always it is better to use three equals (===) 
