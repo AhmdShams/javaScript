@@ -12,10 +12,72 @@ console.log(title, price, taxes, ads, discount, total, count, category, submit);
 
 
 //get total
+function getTotal(){
+    if(price.value != ''){
+        let result = (+price.value + +taxes.value + +ads.value) - +discount.value;
+        total.innerHTML = result
+        total.style.background = '#040';
+    }
+    else{
+        total.innerHTML = '';
+        total.style.background = '#f10';
+    }
+}
+
 //create product
-//save is locaStorage
+let dataPro;
+if(localStorage.product != null){
+    dataPro = JSON.parse(localStorage.product)
+}
+else{
+    dataPro = [];
+}
+//let dataPro = [];
+
+submit.onclick = function(){
+    let newPro = {
+        title:title.value,
+        price:price.value,
+        taxes:taxes.value,
+        ads:ads.value,
+        discount:discount.value,
+        total:total.innerHTML,
+        count:count.value,
+        category:category.value,
+    }
+    dataPro.push(newPro)
+
+    //save is locaStorage
+    localStorage.setItem('product', JSON.stringify(dataPro))
+    clearData()
+    showData()
+    console.log(dataPro)
+}
+
+
+
 //clear inputs
+function clearData(){
+    title.value = '';
+    price.value = '';
+    taxes.value = '';
+    ads.value = '';
+    discount.value = '';
+    total.innerHTML = '';
+}
+
+
 //read
+function showData()
+{
+    let table = '';
+    for(let i = 0; i < dataPro.length;i++){
+        table = dataPro[i];
+    }
+
+    document.getElementById('tbody').innerHTML = table; 
+}
+
 //count
 //delete
 //update
