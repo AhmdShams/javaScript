@@ -72,14 +72,48 @@ function showData()
 {
     let table = '';
     for(let i = 0; i < dataPro.length;i++){
-        table = dataPro[i];
+        table += `
+        <tr>
+        <td>${i}</td>
+        <td>${dataPro[i].title}</td>
+        <td>${dataPro[i].price}</td>
+        <td>${dataPro[i].taxes}</td>
+        <td>${dataPro[i].ads}</td>
+        <td>${dataPro[i].discount}</td>
+        <td>${dataPro[i].total}</td>
+        <td>${dataPro[i].category}</td>
+        <td><button id="update">update</button></td>
+        <td><button onclick="deleteData(${i})" id="delete">delete</button></td>
+        </tr>
+        `
     }
 
     document.getElementById('tbody').innerHTML = table; 
+    let btnDelete = document.getElementById('deleteAll');
+    if(dataPro.length > 0){
+        btnDelete.innerHTML = `
+        <button onclick="deleteAll()">Delete All</button>
+        `
+    }else{
+        btnDelete.innerHTML = ''; //if i have no data hide delete all
+    }
+}
+showData()
+
+//delete
+function deleteData(i){
+    dataPro.splice(i,1);
+    localStorage.product = JSON.stringify(dataPro)
+    showData()
+}
+
+function deleteAll(){
+    localStorage.clear()
+    dataPro.splice(0)
+    showData()
 }
 
 //count
-//delete
 //update
 //search
 //clean data
