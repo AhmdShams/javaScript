@@ -8,6 +8,9 @@ let count = document.getElementById('count');
 let category = document.getElementById('category');
 let submit = document.getElementById('submit');
 
+let mood = 'create';
+let tmp;
+
 console.log(title, price, taxes, ads, discount, total, count, category, submit);
 
 
@@ -45,9 +48,24 @@ submit.onclick = function(){
         count:count.value,
         category:category.value,
     }
-    dataPro.push(newPro)
+    if(mood === 'create'){
+        if(newPro.count > 1){
+        for(let i = 0; i < newPro.count;i++){
+            dataPro.push(newPro);
+        }
+    }else{
+        dataPro.push(newPro);
+    }
+    }else{
+        dataPro[tmp] = newPro;
+        mood = 'create';
+        submit.innerHTML = 'Create';
+        count.style.display = 'block';
+    }
+    
 
-    //save is locaStorage
+
+//save is locaStorage
     localStorage.setItem('product', JSON.stringify(dataPro))
     clearData()
     showData()
@@ -70,6 +88,7 @@ function clearData(){
 //read
 function showData()
 {
+    getTotal()
     let table = '';
     for(let i = 0; i < dataPro.length;i++){
         table += `
@@ -82,7 +101,7 @@ function showData()
         <td>${dataPro[i].discount}</td>
         <td>${dataPro[i].total}</td>
         <td>${dataPro[i].category}</td>
-        <td><button id="update">update</button></td>
+        <td><button onclick="updateData(${i})" id="update">update</button></td>
         <td><button onclick="deleteData(${i})" id="delete">delete</button></td>
         </tr>
         `
@@ -92,7 +111,7 @@ function showData()
     let btnDelete = document.getElementById('deleteAll');
     if(dataPro.length > 0){
         btnDelete.innerHTML = `
-        <button onclick="deleteAll()">Delete All</button>
+        <button onclick="deleteAll()">Delete All(${dataPro.length})</button>
         `
     }else{
         btnDelete.innerHTML = ''; //if i have no data hide delete all
@@ -115,5 +134,24 @@ function deleteAll(){
 
 //count
 //update
+function updateData(i){
+    title.value = dataPro[i].title;
+    price.value = dataPro[i].price;
+    taxes.value = dataPro[i].taxes;
+    ads.value = dataPro[i].ads;
+    discount.value = dataPro[i].discount;
+    getTotal()
+    count.style.display = 'none';
+    category.value = dataPro[i].category;
+    submit.innerHTML = 'Update';
+    mood = 'update';
+    tmp = i;
+    scroll({
+        top:0,
+        behavior:'smooth',
+    })
+}
+
+
 //search
 //clean data
